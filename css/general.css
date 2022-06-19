@@ -73,3 +73,7 @@ input:focus {
   justify-content: center;
   align-items: center;
 }
+
+button {
+  padding: 1rem;
+}

@@ -22,6 +22,7 @@ fetch(
           <div class="vote-count"></div>
           <div class="language"></div>
         </div>
+      <button class="watchlist-btn flexbox"><i class="fa-solid fa-square-plus icon watchlist-icon"></i>add to watchlist</button>
       </div>`;
       image.innerHTML += `
       <div class="mySlides mySlides-${
