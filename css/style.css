@@ -1,0 +1,292 @@
+/************************************/
+/*           NAVBAR SECTION         */
+/************************************/
+.logo {
+  width: 20rem;
+}
+
+.search-input-box {
+  flex: 1;
+  border: none;
+  padding: 1.2rem;
+  color: #fff;
+  border-radius: 2rem;
+  background-color: #333333;
+  font-family: "Inter", sans-serif;
+}
+
+.search-icon {
+  gap: 2rem;
+  justify-content: flex-end;
+}
+
+.left {
+  width: 20rem;
+  flex: 1;
+}
+
+.searchbar {
+  flex: 3;
+}
+
+.search-btn {
+  position: absolute;
+  padding: 0.5rem;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  margin-right: 1rem;
+}
+
+.search-btn:hover {
+  cursor: pointer;
+}
+
+.search {
+  width: 2rem;
+}
+
+.nav-list {
+  flex: 2;
+}
+
+.ul-flexbox {
+  list-style: none;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  justify-content: flex-end;
+  gap: 4.4rem;
+  font-weight: 500;
+}
+
+.watchlist,
+.profile {
+  gap: 1rem;
+  text-decoration: none;
+  color: #fff;
+}
+
+.watchlist-items-count {
+  padding: 0.5rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.icon {
+  transform: scale(1.5);
+}
+
+.fa-caret-down {
+  transform: scale(0.9);
+}
+
+.navbar {
+  padding: 2rem;
+  padding-right: 4rem;
+  position: fixed;
+  width: 100%;
+  justify-content: space-between;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(17, 17, 17, 0.5) 80%,
+    rgba(52, 52, 52, 0) 100%
+  );
+}
+
+.watchlist-items-count {
+  background-color: #fb043c;
+}
+
+.watchlist-btn {
+  background-color: #000;
+  padding: 1.5rem;
+  border: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  gap: 2rem;
+  transition: all 0.3s;
+}
+
+.watchlist-icon {
+  color: #fb043c;
+}
+
+.watchlist-btn:hover {
+  cursor: pointer;
+  background-color: #fb043c;
+  color: #000;
+}
+
+.watchlist-btn:hover .watchlist-icon {
+  color: #000;
+}
+
+.nav-list-item {
+  position: relative;
+}
+
+.dropdown-li {
+  position: absolute;
+  margin-top: 2rem;
+  list-style: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  line-height: 1.5;
+  background-color: #fb043c;
+  /* padding: 1rem; */
+  font-size: 1.4rem;
+  height: 0px;
+  overflow: hidden;
+  text-align: center;
+  transition: height 0.4s ease;
+  width: 100%;
+}
+
+.dropdown-li li {
+  padding: 1rem;
+}
+
+.dropdown-li a {
+  text-decoration: none;
+  color: #fff;
+}
+.dropdown-li-item {
+  width: 100%;
+  padding-left: 1rem;
+}
+
+.dropdown-li-item:hover {
+  background-color: #fb1d50;
+}
+
+.nav-list-item:hover .dropdown-li {
+  height: 9rem;
+}
+
+/************************************/
+/*           HERO SECTION           */
+/************************************/
+
+.hero-movie-details {
+  margin-left: 10rem;
+  padding-top: 50vh;
+  padding-bottom: 10vh;
+}
+
+.movie {
+  display: none;
+}
+
+.movie-no-1 {
+  display: block;
+}
+
+.category {
+  display: none;
+  line-height: 1.5;
+  background: linear-gradient(120deg, #fb043c, #c72c2c, #3a1111);
+  width: fit-content;
+  padding: 1rem;
+  font-size: 1.2rem;
+  letter-spacing: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+.category-1 {
+  display: block;
+}
+
+.hero-title {
+  font-size: 4.8rem;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+}
+
+.hero-description {
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 2;
+  width: 60%;
+  margin-bottom: 1.2rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.votes {
+  justify-content: flex-start;
+  gap: 1.2rem;
+  margin-bottom: 2.4rem;
+}
+
+.vote-avg {
+  font-weight: 600;
+}
+
+.slideshow-container {
+  max-width: 100%;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: auto;
+}
+
+.mySlides {
+  display: none;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 72rem;
+}
+
+.mySlides-1 {
+  display: block;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
