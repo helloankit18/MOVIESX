@@ -1,3 +1,9 @@
+body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
 /************************************/
 /*           NAVBAR SECTION         */
 /************************************/
@@ -87,12 +93,10 @@
   position: fixed;
   width: 100%;
   justify-content: space-between;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.8) 0%,
-    rgba(17, 17, 17, 0.5) 80%,
-    rgba(52, 52, 52, 0) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(52, 52, 52, 0) 100%);
 }
 
 .watchlist-items-count {
@@ -154,6 +158,7 @@
   text-decoration: none;
   color: #fff;
 }
+
 .dropdown-li-item {
   width: 100%;
   padding-left: 1rem;
@@ -212,7 +217,7 @@
   font-weight: 400;
   line-height: 2;
   width: 60%;
-  margin-bottom: 1.2rem;
+  /* margin-bottom: 1.2rem; */
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -240,10 +245,10 @@
 
 .mySlides {
   display: none;
-  object-fit: cover;
-  background-repeat: no-repeat;
   width: 100vw;
-  height: 72rem;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .mySlides-1 {
@@ -260,6 +265,7 @@
   from {
     opacity: 0.4;
   }
+
   to {
     opacity: 1;
   }
@@ -289,4 +295,9 @@
 .prev:hover,
 .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+.section-hero {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
