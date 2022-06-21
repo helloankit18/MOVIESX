@@ -12,22 +12,23 @@ fetch(
 
     for (const [i, x] of arr.entries()) {
       title.innerHTML += `
-      <p class="category category-${i + 1}">TOP RATED</p>
-      <div class="movie movie-no-${i + 1}">
-      <p class="hero-title"></p>
-        <p class="hero-description">
-        </p>
-        <div class="votes flexbox">
-          <div class="vote-avg"></div>
-          <div class="vote-count"></div>
-          <div class="language"></div>
-        </div>
-      <button class="watchlist-btn flexbox"><i class="fa-solid fa-square-plus icon watchlist-icon"></i>add to watchlist</button>
-      </div>`;
+        <p class="category category-${i + 1}">TOP RATED</p>
+        <div class="movie movie-no-${i + 1}">
+        <p class="hero-title"></p>
+          <p class="hero-description">
+          </p>
+          <div class="votes flexbox">
+            <div class="vote-avg"></div>
+            <div class="vote-count"></div>
+            <div class="language"></div>
+          </div>
+        <button class="watchlist-btn flexbox"><i class="fa-solid fa-square-plus icon watchlist-icon"></i>add to watchlist</button>
+        </div>`;
+
       image.innerHTML += `
-      <div class="mySlides mySlides-${
-        i + 1
-      } fade" style="background-image: none"></div>`;
+        <div class="mySlides mySlides-${
+          i + 1
+        } fade" style="background-image: none"></div>`;
 
       document.querySelectorAll(".hero-title")[i].textContent =
         arr[i].original_title;
@@ -44,12 +45,33 @@ fetch(
       ].textContent = `(${arr[i].original_language})`;
       document.querySelectorAll(".mySlides")[
         i
-      ].style.backgroundImage = `linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.8) 0%,
-        rgba(17, 17, 17, 0.5) 80%,
-        rgba(52, 52, 52, 0) 100%
-      ), url(https://image.tmdb.org/t/p/w1280${arr[i].backdrop_path})`;
+      ].style.backgroundImage = `linear-gradient(0deg,
+          rgba(0, 0, 0, 0.8) 0%,
+          rgba(17, 17, 17, 0.5) 80%,
+          rgba(52, 52, 52, 0) 100%
+        ), url(https://image.tmdb.org/t/p/w1280${arr[i].backdrop_path})`;
+    }
+  });
+
+fetch(
+  `https://api.themoviedb.org/3/trending/all/day?api_key=c6f7e03abe070c06a55335e2c824f3d3`
+)
+  .then((response) => response.json())
+  .then((data) => {
+    const arr = data.results;
+    console.log(arr);
+    const grid = document.querySelector(".grid-container");
+    for (let i = 0; i < 12; i++) {
+      grid.innerHTML += `
+        <div class="card card-${i + 1}">
+          <img class="card-img" src="">
+          <div class="card-rating">${arr[i].vote_average}⭐</div>
+          <div class="card-description">${arr[i].overview}</div>
+          <button class="card-watchlist-btn flexbox"><i class="fa-solid fa-square-plus trending-icon"></i></button>
+        </div>`;
+      document.querySelectorAll(".card-img")[
+        i
+      ].src = `https://image.tmdb.org/t/p/w185/${arr[i].poster_path}`;
     }
   });
 
