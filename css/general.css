@@ -17,13 +17,26 @@ Paragraph default: 1.6
 -0.5px
 0.75px
 --- 02 COLORS
-- Primary: #e67e22  
+- Primary: #fb043c  
 - Tints: 
 #1a1a1a
 #333333
-#eb984e
+#fb1d50
 - Shades: 
-- Accents: linear-gradient(to right, #ff0f7b, #f89b29)
+- Accents: 
+TOP RATED - linear-gradient(120deg, #fb043c, #c72c2c, #3a1111);
+NAVBAR - linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(17, 17, 17, 0.5) 80%,
+    rgba(52, 52, 52, 0) 100%
+  );
+HERO - linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(17, 17, 17, 0.5) 80%,
+    rgba(52, 52, 52, 0) 100%
+  );
 - Greys:
 #888
 #767676 (Lighest grey allowed on #fff)
@@ -47,7 +60,7 @@ Medium: 11px
 }
 
 html {
-  height: 100%;
+  min-height: 100%;
   font-size: 62.5%;
   overflow-x: hidden;
 }
@@ -66,6 +79,8 @@ body {
 
 input:focus {
   outline: none;
+  border: 1px solid #fb043c;
+  box-shadow: 0 0 5px #fb043c;
 }
 
 .flexbox {
@@ -74,6 +89,41 @@ input:focus {
   align-items: center;
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.grid-2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid-3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid-4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+.grid-5-cols {
+  grid-template-columns: repeat(5, 1fr);
+}
+.grid-6-cols {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
 button {
   padding: 1rem;
+}
+
+.main {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.hidden {
+  display: none;
 }
