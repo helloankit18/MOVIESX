@@ -60,13 +60,13 @@ Medium: 11px
 }
 
 html {
-  min-height: 100%;
   font-size: 62.5%;
   overflow-x: hidden;
 }
 
 body {
-  min-height: 100%;
+  width: 100%;
+  min-height: 100vh;
   font-family: "Roboto", sans-serif;
   line-height: 1;
   font-size: 1.6rem;
@@ -122,6 +122,7 @@ button {
 .main {
   width: 95%;
   margin: 0 auto;
+  padding-top: 9.8rem;
 }
 
 .hidden {

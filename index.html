@@ -22,7 +22,7 @@
 
     <nav class="navbar flexbox">
       <div class="left">
-        <a href="#"
+        <a href="index.html"
           ><img class="logo" src="img/logo.png" alt="MoviesX-logo"
         /></a>
       </div>
@@ -79,7 +79,7 @@
       <!-- ******TRENDING SECTION** -->
       <!-- ************************ -->
       <section class="section-trending">
-        <a href="">
+        <a href="trending.html">
           <div class="heading flexbox">
             <div class="section-heading">
               <p>Trending</p>
@@ -87,12 +87,30 @@
             </div>
           </div>
         </a>
-        <div class="grid-container grid grid-6-cols"></div>
-        <div class="pagination"></div>
+        <div class="grid-container-trending grid grid-6-cols"></div>
       </section>
       <!-- ************************ -->
-      <!-- ****** SECTION****** -->
+      <!-- ******UPCOMING SECTION****** -->
       <!-- ************************ -->
+
+      <section class="section-upcoming">
+        <a href="upcoming.html">
+        <div class="heading flexbox">
+          <div class="section-heading">
+            <p>Upcoming Movies</p>
+            <p class="section-description">Movies coming to theatres soon</p>
+          </div>
+        </div>
+        </a>
+          <!-- Slideshow container -->
+          <div class="upcoming-slideshow-container fade">
+            <div class="grid-container-upcoming grid grid-6-cols"></div>
+            <a class="prev-upcoming" onclick="minusUpcoming()">&#10094;</a>
+            <a class="next-upcoming" onclick="plusUpcoming()">&#10095;</a>
+          </div>
+          <!-- Next and previous buttons -->
+          
+      </section>
     </main>
 
     </footer>

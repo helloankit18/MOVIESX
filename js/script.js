@@ -1,5 +1,6 @@
 "use strict";
 
+// Top Rated Section
 fetch(
   "https://api.themoviedb.org/3/movie/top_rated?api_key=c6f7e03abe070c06a55335e2c824f3d3&language=en-US&page=1"
 )
@@ -53,6 +54,8 @@ fetch(
     }
   });
 
+// Trending Section
+
 fetch(
   `https://api.themoviedb.org/3/trending/all/day?api_key=c6f7e03abe070c06a55335e2c824f3d3`
 )
@@ -60,7 +63,7 @@ fetch(
   .then((data) => {
     const arr = data.results;
     console.log(arr);
-    const grid = document.querySelector(".grid-container");
+    const grid = document.querySelector(".grid-container-trending");
     for (let i = 0; i < 12; i++) {
       grid.innerHTML += `
         <div class="card card-${i + 1}">
@@ -74,6 +77,99 @@ fetch(
       ].src = `https://image.tmdb.org/t/p/w185/${arr[i].poster_path}`;
     }
   });
+
+// Upcoming section
+let genres = new Map();
+
+fetch(
+  `https://api.themoviedb.org/3/genre/movie/list?api_key=c6f7e03abe070c06a55335e2c824f3d3&language=en-US`
+)
+  .then((response) => response.json())
+  .then((data) => {
+    const arr = data.genres;
+    for (const x of arr) {
+      genres.set(x.id, x.name);
+    }
+    console.log(genres);
+  });
+
+let genreColor = new Map();
+genreColor.set("Action", "red");
+genreColor.set("Adventure", "yellow");
+genreColor.set("Animation", "yellow");
+genreColor.set("Comedy", "yellow");
+genreColor.set("Crime", "red");
+genreColor.set("Documentary", "blue");
+genreColor.set("Drama", "blue");
+genreColor.set("Family", "yellow");
+genreColor.set("Fantasy", "pink");
+genreColor.set("History", "pink");
+genreColor.set("Horror", "red");
+genreColor.set("Music", "yellow");
+genreColor.set("Mystery", "blue");
+genreColor.set("Romance", "pink");
+genreColor.set("Science Fiction", "blue");
+genreColor.set("TV Movie", "blue");
+genreColor.set("Thriller", "red");
+genreColor.set("War", "red");
+genreColor.set("Western", "blue");
+let page = 1;
+
+function fetchUpcoming(page) {
+  fetch(
+    `https://api.themoviedb.org/3/movie/upcoming?api_key=c6f7e03abe070c06a55335e2c824f3d3&language=en-US&page=${page}`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      const arr = data.results;
+      console.log(arr);
+      const grid = document.querySelector(".grid-container-upcoming");
+      if (grid.innerHTML != "") {
+        grid.innerHTML = "";
+      }
+      for (let i = 0; i < 6; i++) {
+        const primaryGenre = genres.get(arr[i].genre_ids[0]);
+        grid.innerHTML += `
+          <div class="card card-${i + 1}">
+            <div class="card-genre">${primaryGenre}</div>
+            <img class="card-img upcoming" src="">
+            <div class=" card-rating card-release-date">${
+              arr[i].release_date
+            }</div>
+            <div class="card-description">${arr[i].overview}</div>
+            <button class="card-watchlist-btn flexbox"><i class="fa-solid fa-square-plus trending-icon"></i></button>
+          </div>`;
+        document.querySelectorAll(".upcoming")[
+          i
+        ].src = `https://image.tmdb.org/t/p/w185/${arr[i].poster_path}`;
+        document.querySelectorAll(".card-genre")[
+          i
+        ].style.backgroundColor = `${genreColor.get(primaryGenre)}`;
+        document.querySelectorAll(".card-genre")[i].style.color =
+          document.querySelectorAll(".card-genre")[i].style.backgroundColor ==
+          ("yellow" || "blue" || "pink")
+            ? "#000"
+            : "#fff";
+      }
+    });
+}
+
+fetchUpcoming();
+
+function getGenreColor(genre) {
+  return;
+}
+
+function plusUpcoming() {
+  page += 1;
+  fetchUpcoming(page);
+}
+
+function minusUpcoming() {
+  if (page == 1) return;
+  page -= 1;
+  fetchUpcoming(page);
+}
 
 let slideIndex = 1;
 showSlides(slideIndex);
@@ -102,4 +198,9 @@ function showSlides(n) {
   }
   slides[slideIndex - 1].style.display = "block";
   slideDescription[slideIndex - 1].style.display = "block";
+}
+
+function addToWatchList() {
+  document.querySelectorAll(".watchlist-btn");
+  document.querySelectorAll(".card-watchlist-btn");
 }
